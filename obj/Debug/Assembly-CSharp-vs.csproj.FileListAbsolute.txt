@@ -1,0 +1,11 @@
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\Assembly-CSharp.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\Assembly-CSharp.pdb
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\UnityEditor.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\UnityEngine.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\Mono.Cecil.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\nunit.framework.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\Unity.DataContract.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+E:\Juanfra\My Documents\GitHub\gameDay2\obj\Debug\Assembly-CSharp.dll
+E:\Juanfra\My Documents\GitHub\gameDay2\obj\Debug\Assembly-CSharp.pdb
