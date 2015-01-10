@@ -28,6 +28,7 @@ public class Draggable : MonoBehaviour {
         if (other.tag.Equals("Player"))
         {
             mouseOn = true;
+			transform.localScale = new Vector3 (1.1f, 1.1f, 1.0f);
         }
     }
 
@@ -35,14 +36,23 @@ public class Draggable : MonoBehaviour {
     {
         if (other.tag.Equals("Player"))
         {
-            mouseOn = false;
+			mouseOn = false;
+			transform.localScale = new Vector3 (1, 1, 1);
         }
     }
 
     bool buttonPressed;
 	// Update is called once per frame
 	void Update () {
-        if (this.GetComponent<SpriteRenderer>().enabled && mouseOn
+		/*
+		if (mouseOn) {
+			transform.localScale = new Vector3 (1.1f, 1.1f, 1.1f);
+		} else {
+			transform.localScale = new Vector3 (1, 1, 1);
+		}
+		*/
+
+		if (this.GetComponent<SpriteRenderer>().enabled && mouseOn
             && ((theFly.draggingObject != null) && theFly.draggingObject.Equals(this)))
         {
             if (Input.GetMouseButton(0))
