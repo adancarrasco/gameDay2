@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Draggable : MonoBehaviour {
 
-    public enum ID { zidane, scream, oropeza, gaviota, pena, cuchillo, hamburguesa, balon };
+    public enum ID { zidane, scream, oropeza, gaviota, pena, cuchillo, hamburguesa, balon, nieve };
     public TeleManager TV;
 
     public MoveFly theFly;

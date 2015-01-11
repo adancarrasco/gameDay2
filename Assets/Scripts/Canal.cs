@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Canal : MonoBehaviour {
 
-    public int resState_zidane, resState_scream, resState_oropeza, resState_gaviota, resState_pena, resState_cuchillo, resState_hamburguesa, resState_balon;
+    public int resState_zidane, resState_scream, resState_oropeza, resState_gaviota, resState_pena, resState_cuchillo, resState_hamburguesa, resState_balon, resState_nieve;
 
     public SpriteRenderer state0, state1, state2, state3, state4, state5, state6, state7;
 
@@ -44,6 +44,9 @@ public class Canal : MonoBehaviour {
                     break;
                 case Draggable.ID.balon:
                     SetState(resState_balon);
+                    break;
+                case Draggable.ID.nieve:
+                    SetState(resState_nieve);
                     break;
             }
         }

@@ -3,11 +3,13 @@ using System.Collections;
 
 public class TeleManager : MonoBehaviour {
 
+    private bool hotToPlayComplete = false;
+
     public int index = 0;
-    public Draggable[] draggables = new Draggable[8];
+    public Draggable[] draggables = new Draggable[9];
     public void searchToShow(Canal updatedChannel)
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 9; i++)
         {
             Draggable d = draggables[i];
             Debug.Log(">>" + d.currentChannel.name + " - " + updatedChannel.name);
@@ -29,7 +31,7 @@ public class TeleManager : MonoBehaviour {
     private int currChannelIndex;
     private Canal currentChannel;
 
-    public Canal canalDeportes, canalComida, canalTerror, canalPolitica, canalNovelas;
+    public Canal canalDeportes, canalComida, canalTerror, canalPolitica, canalNovelas, canalHowToPlay1, canalHowToPlay2;
 
 	// Use this for initialization
 	void Start () {
@@ -43,13 +45,14 @@ public class TeleManager : MonoBehaviour {
 	void Update () {
         if (start)
         {
+            canalHowToPlay2.Hide();
             canalDeportes.Hide();
             canalNovelas.Hide();
             canalComida.Hide();
             canalPolitica.Hide();
             canalTerror.Hide();
 
-            currChannelIndex = Random.Range(0, 5);
+            currChannelIndex = -2; // Random.Range(0, 5);
             setChannel(currChannelIndex);
             start = false;
         }
@@ -83,16 +86,32 @@ public class TeleManager : MonoBehaviour {
     public void channelUp()
     {
         currChannelIndex++;
-        if (currChannelIndex > 4)
-            currChannelIndex = 0;
+        if (hotToPlayComplete)
+        {
+            if (currChannelIndex > 4)
+                currChannelIndex = 0;
+        }
+        else
+        {
+            if (currChannelIndex > -1)
+                currChannelIndex = -2;
+        }
         setChannel(currChannelIndex);
     }
 
     public void channelDown()
     {
         currChannelIndex--;
-        if (currChannelIndex < 0)
-            currChannelIndex = 4;
+        if (hotToPlayComplete)
+        {
+            if (currChannelIndex < 0)
+                currChannelIndex = 4;
+        }
+        else
+        {
+            if (currChannelIndex < -2)
+                currChannelIndex = -1;
+        }
         setChannel(currChannelIndex);
     }
 
@@ -100,6 +119,16 @@ public class TeleManager : MonoBehaviour {
     {
         switch (channelNum)
         {
+            case -2:
+                currentChannel = canalHowToPlay1;
+                canalHowToPlay2.Hide();
+                canalHowToPlay1.Show();
+                break;
+            case -1:
+                currentChannel = canalHowToPlay2;
+                canalHowToPlay1.Hide();
+                canalHowToPlay2.Show();
+                break;
             case 0:
                 currentChannel = canalDeportes;
                 canalNovelas.Hide();
