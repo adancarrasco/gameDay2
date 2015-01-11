@@ -16,6 +16,8 @@ public class Draggable : MonoBehaviour {
 
     private bool used; //Para cuando ya se usó el objeto y no se quiere que se pueda draggear u ocultar de nuevo
 
+	private AudioClip pickAudio;
+
 	// Use this for initialization
 	void Start () {
         TV.draggables[TV.index] = this;
@@ -29,6 +31,7 @@ public class Draggable : MonoBehaviour {
         {
             mouseOn = true;
 			transform.localScale = new Vector3 (1.1f, 1.1f, 1.0f);
+			//pickAudio = other.audio;
         }
     }
 
@@ -57,7 +60,10 @@ public class Draggable : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
-                isDragged = true;
+				if(!isDragged){
+					theFly.audio.Play();
+				}
+				isDragged = true;
                 var pos = Input.mousePosition;
                 pos.z = 2f;
                 pos = Camera.main.ScreenToWorldPoint(pos);
@@ -71,6 +77,9 @@ public class Draggable : MonoBehaviour {
 
         if (!Input.GetMouseButton(0) && isDragged)
         {
+			//theFly.GetComponent("legs").audio.Play();
+			//theFly.GetComponentInChildren<AudioClip>();
+			TV.audio.Play();
             isDragged = false;
             Canal tvChannel = TV.getChannel();
             tvChannel.putDraggable(objectType);
